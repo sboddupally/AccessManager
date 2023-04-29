@@ -5,39 +5,46 @@ import java.util.Objects;
 public class User {
 
 	private Integer id;
-	private String name;
+	
+	//assuming userName is always unique across users
+	private String userName;
 
 	
-	public User() {
-		
+	public User(String userName) {
+		this.userName = userName;
 	}
 	
-	public User(Integer id, String name) {
-		super();
+	public User(Integer Id,String userName) {
 		this.id = id;
-		this.name = name;
+		this.userName = userName;
 	}
+
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
+
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(userName);
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -48,8 +55,13 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(userName, other.userName);
 	}
+
+
+	
+	
+	
 
 	
 }
